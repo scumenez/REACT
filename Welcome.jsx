@@ -1,0 +1,34 @@
+import { Age } from "./Age";
+import Container from "./Container";
+import "./index.css";
+
+export function Welcome({ name, surname, age }) {
+  return (
+    <Container title={<h1>Ciao</h1>}>
+      <p>
+        Hello,
+        <strong>
+          {name} {surname}
+        </strong>
+        !
+        <Age age={age} />
+      </p>
+
+      {age > 18 && <p>{age} è maggiore di 18.</p>}
+
+      {age !== undefined && <p>{age}.</p>}
+
+      {age > 18 && age < 65 && <p>{age} è compreso tra 18 e 65.</p>}
+
+      {age > 18 && age < 65 && name === "John" && <p>{age}</p>}
+
+      {age > 18 && name === "Riccardo" && (
+        <p>
+          {age} il tuo nome è {name}
+        </p>
+      )}
+    </Container>
+  );
+}
+
+export const person = { name: "Riccardo", surname: "Cuomo", age: "28" };
